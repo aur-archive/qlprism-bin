@@ -1,0 +1,11 @@
+post_install(){
+  gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor
+  update-desktop-database
+  echo "==> Add user to 'wheel' group"
+  echo "  -> gpasswd -a <USER> wheel"
+}
+post_remove(){
+  rm -Rf /opt/qlprism
+  echo "  -> Successfully removed"
+  echo "==> Delete ~/.quakelive to remove config files"
+}
